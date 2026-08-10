@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+/* ────────────────────────────────────────────────────────────────────────────
+   CorpoMerch design tokens.
+
+   Tailwind v4, CSS-first. This @theme block is the ONLY source of design
+   tokens — there is no tailwind.config.* and none should be created.
+
+   Palette is red + black on white, sampled from the logo (#D12429). Light mode
+   only: there are deliberately no dark-mode variants anywhere in this app.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Brand */
+  --color-brand: #d12429;
+  --color-brand-dark: #a81319;
+  --color-brand-light: #f5343a;
+  --color-brand-tint: #fef2f2;
+  --color-brand-tint-strong: #fee2e2;
+
+  /* Neutrals */
+  --color-ink: #0a0a0a;
+  --color-body: #3f3f46;
+  --color-muted: #71717a;
+  --color-faint: #a1a1aa;
+  --color-line: #e4e4e7;
+  --color-line-strong: #d4d4d8;
+  --color-surface: #fafafa;
+  --color-surface-alt: #f4f4f5;
+
+  /* Status — used sparingly. Red belongs to the brand, not to errors. */
+  --color-success: #15803d;
+  --color-warning: #b45309;
+  --color-warning-tint: #fffbeb;
+
+  /* Breakpoints added to the Tailwind defaults */
+  --breakpoint-xs: 30rem; /* 480px — bottom bar / 2-col split */
+  --breakpoint-ml: 56rem; /* 896px — desktop nav split */
+
+  /* Fonts. Geist is the SF Pro stand-in; the fallback stack leads with
+     -apple-system so Apple devices render genuine SF Pro. */
+  --font-sans:
+    var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+/* Wrapped in @layer base so it sits below Tailwind's utilities layer in the
+   cascade. Unlayered rules beat layered ones regardless of specificity — left
+   unlayered, this block silently won every fight with a utility class (a
+   `text-white` heading rendered `--color-ink` anyway; an `outline-none` input
+   still got the default outline). Layering it lets a plain utility override
+   these defaults, which is the whole point of having them. */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-body);
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-brand);
+    color: #ffffff;
+  }
+
+  /* Never remove the focus ring; only restyle it. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Utilities ────────────────────────────────────────────────────────────── */
+
+@utility scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Edge-fading horizontal scroller, used by the category rail and logo marquee. */
+@utility mask-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 2rem,
+    #000 calc(100% - 2rem),
+    transparent
+  );
+}
+
+/* ─── Animations ───────────────────────────────────────────────────────────── */
+
+@keyframes cm-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cm-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cm-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-fade-in {
+  animation: cm-fade-in 0.3s var(--ease-out-soft) both;
+}
+
+@utility animate-rise {
+  animation: cm-rise 0.4s var(--ease-out-soft) both;
+}
+
+@utility animate-marquee {
+  animation: cm-marquee 40s linear infinite;
+}
+
+/* ─── Long-form product descriptions ───────────────────────────────────────── */
+/* Scoped styling for react-markdown output. Cheaper than pulling in the
+   typography plugin for the handful of elements the admin can actually emit. */
+
+.cm-prose {
+  color: var(--color-body);
+  line-height: 1.75;
+}
+.cm-prose > * + * {
+  margin-top: 1rem;
+}
+.cm-prose h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+}
+.cm-prose h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+.cm-prose ul,
+.cm-prose ol {
+  padding-left: 1.25rem;
+}
+.cm-prose ul {
+  list-style: disc;
+}
+.cm-prose ol {
+  list-style: decimal;
+}
+.cm-prose li + li {
+  margin-top: 0.375rem;
+}
+.cm-prose li::marker {
+  color: var(--color-brand);
+}
+.cm-prose strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+.cm-prose a {
+  color: var(--color-brand);
+  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+.cm-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.cm-prose th,
+.cm-prose td {
+  border: 1px solid var(--color-line);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.cm-prose th {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-weight: 600;
+}
