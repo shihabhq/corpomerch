@@ -18,7 +18,7 @@ export default function NotFound() {
       </h1>
       <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
         The link may be out of date, or the product may have been renamed. Try
-        the catalogue — and if you know what you need, just message us.
+        the catalogue, and if you know what you need, just message us.
       </p>
 
       <div className="mt-7 flex flex-wrap justify-center gap-3">

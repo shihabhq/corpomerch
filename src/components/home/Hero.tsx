@@ -16,8 +16,38 @@ import type { ProductCardDTO } from "@/types/catalog";
  * squares as squares. Once real banner artwork exists in `homepage_banners`,
  * swap in a slider — the data is already wired.
  */
+/**
+ * Picks up to `count` products for the collage, favouring one per category so
+ * the tiles read as "everything we supply" rather than four near-duplicate
+ * shots from whichever category happens to sort first.
+ */
+function pickDiverseTiles(products: ProductCardDTO[], count: number) {
+  const seenCategories = new Set<string>();
+  const picked: ProductCardDTO[] = [];
+  const leftover: ProductCardDTO[] = [];
+
+  for (const product of products) {
+    const categoryKey = product.primaryCategory?.slug ?? product.id;
+    if (picked.length < count && !seenCategories.has(categoryKey)) {
+      seenCategories.add(categoryKey);
+      picked.push(product);
+    } else {
+      leftover.push(product);
+    }
+  }
+
+  // Not enough distinct categories in the featured set — pad with whatever
+  // is left rather than showing fewer than `count` tiles.
+  for (const product of leftover) {
+    if (picked.length >= count) break;
+    picked.push(product);
+  }
+
+  return picked;
+}
+
 export function Hero({ products }: { products: ProductCardDTO[] }) {
-  const tiles = products.slice(0, 4);
+  const tiles = pickDiverseTiles(products, 4);
 
   return (
     <section className="relative overflow-hidden border-b border-line bg-white">
@@ -43,7 +73,7 @@ export function Hero({ products }: { products: ProductCardDTO[] }) {
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-body">
               ID cards, lanyards, drinkware, pens, bags, certificates, banners
-              and full delegate kits — sourced, branded and delivered anywhere in
+              and full delegate kits: sourced, branded and delivered anywhere in
               Bangladesh. Bulk pricing shown up front, quotes confirmed on
               WhatsApp.
             </p>

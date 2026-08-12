@@ -17,7 +17,7 @@ export function formatBDT(
   amount: number | null | undefined,
   opts: { decimals?: boolean } = {},
 ): string {
-  if (amount === null || amount === undefined) return "—";
+  if (amount === null || amount === undefined) return "-";
   const hasFraction = Math.abs(amount % 1) > 0.004;
   const showDecimals = opts.decimals ?? hasFraction;
   return `৳${amount.toLocaleString("en-BD", {

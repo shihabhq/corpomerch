@@ -7,7 +7,7 @@ import { CONTACT } from "@/data/site";
 import { breadcrumbSchema, buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact CorpoMerch — Panthapath, Dhaka",
+  title: "Contact CorpoMerch, Panthapath, Dhaka",
   description: `Get a quote for custom corporate merchandise and print. WhatsApp ${CONTACT.phoneDisplay}, email ${CONTACT.email}, or visit us at Concept Tower, Greenroad, Panthapath, Dhaka 1205.`,
   path: "/contact",
 });
@@ -18,7 +18,7 @@ const CHANNELS = [
     label: "WhatsApp",
     value: CONTACT.phoneDisplay,
     href: `https://wa.me/${CONTACT.whatsapp}`,
-    hint: "Fastest — usually answered within a couple of hours",
+    hint: "Fastest, usually answered within a couple of hours",
     external: true,
     accent: true,
   },
@@ -109,7 +109,7 @@ export default function ContactPage() {
                   {CONTACT.hours}
                 </p>
                 <p className="mt-1 text-xs text-faint">
-                  Friday closed. Urgent event deadlines — message on WhatsApp any
+                  Friday closed. Urgent event deadlines: message on WhatsApp any
                   time and we will pick it up.
                 </p>
               </div>

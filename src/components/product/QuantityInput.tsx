@@ -153,7 +153,7 @@ export function SqftCalculator({
         <p className="text-sm text-body">
           ={" "}
           <span className="font-semibold tabular-nums text-ink">
-            {valid ? sqft.toLocaleString("en-BD") : "—"}
+            {valid ? sqft.toLocaleString("en-BD") : "-"}
           </span>{" "}
           sq.ft.
         </p>

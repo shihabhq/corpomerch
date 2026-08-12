@@ -12,7 +12,7 @@ import { buildMetadata, itemListSchema } from "@/lib/seo";
 export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
-  title: "All Products — Corporate Merchandise & Print",
+  title: "All Products: Corporate Merchandise & Print",
   description:
     "The full CorpoMerch catalogue: ID cards, lanyards, keyrings, pens, drinkware, bags, certificates, magazines, banners and backdrops. Bulk pricing and MOQs shown on every product.",
   path: "/products",

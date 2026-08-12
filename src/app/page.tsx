@@ -24,7 +24,7 @@ const WHY_US = [
   {
     icon: Boxes,
     title: "One supplier, every category",
-    body: "Badges, drinkware, print and signage from a single point of contact — no chasing four vendors before an event.",
+    body: "Badges, drinkware, print and signage from a single point of contact, no chasing four vendors before an event.",
   },
   {
     icon: Wallet,
@@ -67,7 +67,7 @@ export default async function HomePage() {
           <SectionHeader
             eyebrow="Browse"
             title="What we supply"
-            description="Twenty product lines across eleven categories — and if it can be branded and it is not listed here, ask us anyway."
+            description="Twenty product lines across eleven categories, and if it can be branded and it is not listed here, ask us anyway."
             action={
               <ButtonLink href="/products" variant="outline" size="sm">
                 All products
@@ -108,119 +108,15 @@ export default async function HomePage() {
         </Container>
       </Section>
 
-      <Section muted>
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
-            <div>
-              <SectionHeader
-                eyebrow="Why CorpoMerch"
-                title="Built for people running events on a deadline"
-              />
-              <div className="grid gap-4 sm:grid-cols-2">
-                {WHY_US.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-xl border border-line bg-white p-5 shadow-sm"
-                  >
-                    <item.icon className="size-5 text-brand" aria-hidden />
-                    <h3 className="mt-3 text-sm font-semibold text-ink">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1.5 text-xs leading-relaxed text-muted">
-                      {item.body}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <SectionHeader
-                eyebrow="Latest additions"
-                title="New in the catalogue"
-                action={
-                  <ButtonLink
-                    href="/products?sort=newest"
-                    variant="ghost"
-                    size="sm"
-                  >
-                    View all
-                    <ArrowRight className="size-4" aria-hidden />
-                  </ButtonLink>
-                }
-              />
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
-                {newest.products.slice(0, 3).map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    sizes="(min-width: 1024px) 20vw, 45vw"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
       <Section muted className="py-10 md:py-12">
         <Container>
           <SectionHeader
             eyebrow="Trusted by"
             title="Clients and organisations we've supplied"
-            description="From university clubs and sports complexes to agencies and event teams — a snapshot of who we've produced merchandise and print for."
+            description="From university clubs and sports complexes to agencies and event teams: a snapshot of who we've produced merchandise and print for."
             align="center"
           />
           <ClientLogos />
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <SectionHeader
-            eyebrow="Questions"
-            title="The things people ask first"
-            action={
-              <ButtonLink href="/faq" variant="outline" size="sm">
-                All FAQs
-                <ArrowRight className="size-4" aria-hidden />
-              </ButtonLink>
-            }
-          />
-          <div className="grid gap-3 md:grid-cols-2">
-            {faqs.slice(0, 4).map((faq) => (
-              <details
-                key={faq.id}
-                className="group rounded-xl border border-line bg-white p-5 shadow-sm transition-colors open:border-brand/25"
-              >
-                <summary className="cursor-pointer list-none text-sm font-semibold text-ink marker:content-none">
-                  <span className="flex items-start justify-between gap-4">
-                    {faq.question}
-                    <span
-                      className="mt-0.5 shrink-0 text-brand transition-transform group-open:rotate-45"
-                      aria-hidden
-                    >
-                      +
-                    </span>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {faq.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-
-          <p className="mt-6 text-center text-sm text-muted">
-            Something not covered?{" "}
-            <Link
-              href="/contact"
-              className="font-medium text-brand hover:underline"
-            >
-              Get in touch
-            </Link>
-            .
-          </p>
         </Container>
       </Section>
     </>

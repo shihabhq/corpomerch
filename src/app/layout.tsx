@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — ${SITE.tagline} in Bangladesh`,
+    default: `${SITE.name}, ${SITE.tagline} in Bangladesh`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -51,10 +51,21 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     locale: SITE.locale,
     url: SITE.url,
-    title: `${SITE.name} — ${SITE.tagline} in Bangladesh`,
+    title: `${SITE.name}, ${SITE.tagline} in Bangladesh`,
     description: SITE.description,
+    images: [
+      {
+        url: "/assets/seo-image.png",
+        width: 1900,
+        height: 955,
+        alt: `${SITE.name}, ${SITE.tagline}`,
+      },
+    ],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/seo-image.png"],
+  },
   robots: {
     index: true,
     follow: true,

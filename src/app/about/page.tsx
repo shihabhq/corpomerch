@@ -13,9 +13,9 @@ import { CONTACT, SITE, TRUST_STATS } from "@/data/site";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About CorpoMerch — Corporate Merchandise Supplier in Dhaka",
+  title: "About CorpoMerch, Corporate Merchandise Supplier in Dhaka",
   description:
-    "CorpoMerch by Backstage is a Dhaka-based supplier of customised corporate merchandise and print — one point of contact for badges, drinkware, print, signage and complete event kits.",
+    "CorpoMerch by Backstage is a Dhaka-based supplier of customised corporate merchandise and print: one point of contact for badges, drinkware, print, signage and complete event kits.",
   path: "/about",
 });
 
@@ -28,7 +28,7 @@ const CAPABILITIES = [
   {
     icon: Boxes,
     title: "Sourcing and production",
-    body: "Print, laser cutting, engraving, sublimation and large-format across a vetted supplier network — so one purchase order covers the whole event.",
+    body: "Print, laser cutting, engraving, sublimation and large-format across a vetted supplier network, so one purchase order covers the whole event.",
   },
   {
     icon: Truck,
@@ -55,7 +55,7 @@ export default function AboutPage() {
           <p className="mt-5 text-base leading-relaxed text-body">
             {SITE.name} is the corporate merchandise arm of {SITE.legalName}. We
             exist because organising an event should not mean managing five
-            vendors — one for badges, one for lanyards, one for the banner, one
+            vendors: one for badges, one for lanyards, one for the banner, one
             for the delegate bags, and one who does not answer the phone in the
             final week.
           </p>

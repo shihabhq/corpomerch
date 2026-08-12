@@ -181,20 +181,6 @@ export function Header({
                         <p className="mt-0.5 text-[11px] text-faint">
                           {cat.productCount} product{cat.productCount === 1 ? "" : "s"}
                         </p>
-                        {cat.children.length > 0 ? (
-                          <ul className="mt-2.5 space-y-1.5">
-                            {cat.children.map((child) => (
-                              <li key={child.id}>
-                                <Link
-                                  href={`/categories/${child.slug}`}
-                                  className="text-[13px] text-muted transition-colors hover:text-brand"
-                                >
-                                  {child.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : null}
                       </div>
                     ))}
                   </div>

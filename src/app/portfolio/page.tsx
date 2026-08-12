@@ -17,7 +17,7 @@ import { assetUrl } from "@/lib/storage";
 export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
-  title: "Portfolio — Events We've Supplied",
+  title: "Portfolio: Events We've Supplied",
   description:
     "Selected work from CorpoMerch: conference badge and lanyard runs, delegate kits, step-and-repeat backdrops, certificates and event print across Bangladesh.",
   path: "/portfolio",
@@ -37,7 +37,7 @@ export default async function PortfolioPage() {
           Work we&apos;ve delivered
         </h1>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-          Career fairs, conferences, convocations and festivals — badge runs,
+          Career fairs, conferences, convocations and festivals: badge runs,
           delegate kits, backdrops and print produced end to end.
         </p>
       </Container>
@@ -48,7 +48,7 @@ export default async function PortfolioPage() {
             <EmptyState
               icon={<ImageIcon className="size-10" />}
               title="Portfolio coming soon"
-              description="We're putting together case studies from recent events. In the meantime, ask us for references and photographs from work in your sector — we're happy to share them."
+              description="We're putting together case studies from recent events. In the meantime, ask us for references and photographs from work in your sector, we're happy to share them."
               action={<ButtonLink href="/contact">Ask for references</ButtonLink>}
             />
           ) : (

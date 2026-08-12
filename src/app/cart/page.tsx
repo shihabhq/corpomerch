@@ -96,7 +96,7 @@ export default async function CartPage() {
           Your inquiry list
         </h1>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-          There is no checkout here — sending the list opens WhatsApp with
+          There is no checkout here: sending the list opens WhatsApp with
           everything written out, and our team comes back with a firm quote.
         </p>
 

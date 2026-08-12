@@ -9,7 +9,7 @@ import { buildMetadata, faqSchema } from "@/lib/seo";
 export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
-  title: "FAQ — Ordering, Artwork, Turnaround & Delivery",
+  title: "FAQ: Ordering, Artwork, Turnaround & Delivery",
   description:
     "Answers on minimum order quantities, bulk pricing, artwork formats, proofing, production turnaround, nationwide delivery and payment terms at CorpoMerch.",
   path: "/faq",
@@ -45,7 +45,7 @@ export default async function FaqPage() {
         </h1>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
           The things people ask before their first order. If yours is not here,
-          message us on WhatsApp — we would rather answer than have you guess.
+          message us on WhatsApp, we would rather answer than have you guess.
         </p>
       </Container>
 

@@ -247,7 +247,7 @@ export function CartView({ pricing }: { pricing: CartPricingSource }) {
                         entry.product.unit,
                         entry.product.unitLabel,
                       )}{" "}
-                      minimum — we&apos;ll confirm when we quote.
+                      minimum, we&apos;ll confirm when we quote.
                     </p>
                   ) : null}
 
@@ -298,7 +298,7 @@ export function CartView({ pricing }: { pricing: CartPricingSource }) {
               ) : null}
             </dt>
             <dd className="text-lg font-semibold tabular-nums text-brand">
-              {total > 0 ? formatBDT(total) : "—"}
+              {total > 0 ? formatBDT(total) : "-"}
             </dd>
           </div>
         </dl>

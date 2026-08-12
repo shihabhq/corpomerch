@@ -18,7 +18,7 @@ export async function generateMetadata(
   return buildMetadata({
     title: q ? `Search results for “${q}”` : "Search",
     description: q
-      ? `Products matching “${q}” at CorpoMerch — customised corporate merchandise and print in Bangladesh.`
+      ? `Products matching “${q}” at CorpoMerch: customised corporate merchandise and print in Bangladesh.`
       : "Search the CorpoMerch catalogue of customised corporate merchandise and print.",
     path: q ? `/search?q=${encodeURIComponent(q)}` : "/search",
     // A bare search page is a thin, near-duplicate page — keep it out of the
@@ -69,7 +69,7 @@ export default async function SearchPage(props: PageProps<"/search">) {
         basePath="/search"
         searchParams={searchParams}
         emptyTitle={q ? `Nothing found for “${q}”` : "Start typing to search"}
-        emptyDescription="Try a shorter or more general term — “card”, “banner”, “bottle”. We also supply plenty that is not listed on the site, so it is always worth asking."
+        emptyDescription="Try a shorter or more general term, such as “card”, “banner” or “bottle”. We also supply plenty that is not listed on the site, so it is always worth asking."
       />
     </>
   );
