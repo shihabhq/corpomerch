@@ -93,6 +93,15 @@
   }
 }
 
+/* The footer sits on solid brand red, so the site-wide red-highlight/white-text
+   selection above would nearly disappear there. Left unlayered (see the note
+   on @layer base up top), this always wins over the layered rule regardless
+   of specificity, so a plain `.selection:*` utility does not have to fight it. */
+.footer-red ::selection {
+  background-color: #ffffff;
+  color: var(--color-brand);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

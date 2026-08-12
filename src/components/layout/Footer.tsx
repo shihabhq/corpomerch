@@ -43,7 +43,7 @@ export function Footer() {
       {/* Everything below the quote band is brand red, per the site's
           red-and-black-on-white palette — this is the one place red covers a
           whole section rather than punctuating it. */}
-      <div className="bg-brand">
+      <div className="footer-red bg-brand">
         <div className={cn(CONTAINER, "py-12")}>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
             <div className="col-span-2 lg:col-span-2">
