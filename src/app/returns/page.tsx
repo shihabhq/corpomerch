@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Returns & Reprints",
   description:
-    "What happens if a CorpoMerch order arrives faulty, short or wrong — our reprint policy, timelines and how to report a problem.",
+    "What happens if a CorpoMerch order arrives faulty, short or wrong: our reprint policy, timelines and how to report a problem.",
   path: "/returns",
 });
 
@@ -25,7 +25,7 @@ export default function ReturnsPage() {
           A thousand certificates with your delegates&apos; names on them have no
           value to anyone else, so we cannot restock or resell them. That means
           we cannot accept change-of-mind returns on personalised goods. What we
-          can do — and do without argument — is put right anything that is our
+          can do, and do without argument, is put right anything that is our
           fault.
         </p>
       </LegalSection>
@@ -33,7 +33,7 @@ export default function ReturnsPage() {
       <LegalSection heading="We reprint free of charge if">
         <ul>
           <li>
-            The delivered goods differ from the artwork you approved — wrong
+            The delivered goods differ from the artwork you approved: wrong
             text, wrong colour reference, wrong size or wrong material.
           </li>
           <li>
@@ -51,7 +51,7 @@ export default function ReturnsPage() {
         <ul>
           <li>
             The error was present in the artwork you approved. This is the most
-            common case, and it is why we ask you to read every proof carefully —
+            common case, and it is why we ask you to read every proof carefully,
             especially names, dates, spellings and serial numbers.
           </li>
           <li>
@@ -103,7 +103,7 @@ export default function ReturnsPage() {
           almost every case in a single message.
         </p>
         <p>
-          Please keep the affected goods until the matter is settled — we may ask
+          Please keep the affected goods until the matter is settled, we may ask
           to collect a sample.
         </p>
       </LegalSection>

@@ -36,7 +36,7 @@ export async function generateMetadata(
   return buildMetadata({
     title:
       category.seoTitle ??
-      `${category.name} — Custom Printing & Bulk Pricing in Bangladesh`,
+      `${category.name}: Custom Printing & Bulk Pricing in Bangladesh`,
     description:
       category.seoDescription ??
       category.description ??

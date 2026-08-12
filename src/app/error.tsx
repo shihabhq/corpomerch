@@ -27,7 +27,7 @@ export default function Error({
         Something went wrong
       </h1>
       <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
-        This is on us, not you. Try again — and if it keeps happening, message us
+        This is on us, not you. Try again, and if it keeps happening, message us
         and we&apos;ll sort your order out directly.
       </p>
 

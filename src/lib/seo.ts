@@ -7,6 +7,10 @@ import type { ProductDetailDTO } from "@/types/catalog";
 export const absoluteUrl = (path = "/") =>
   new URL(path, SITE.url).toString();
 
+/** Default social-share card, used whenever a page does not supply its own
+ * (product pages pass their real product photos instead). */
+const DEFAULT_OG_IMAGE = absoluteUrl("/assets/seo-image.png");
+
 // The <JsonLd> renderer lives in components/shared/JsonLd.tsx so this module
 // stays JSX-free and importable from anywhere.
 
@@ -196,6 +200,7 @@ export function buildMetadata({
 }): Metadata {
   const url = absoluteUrl(path);
   const desc = truncate(toPlainText(description), 158);
+  const shareImages = images?.length ? images : [DEFAULT_OG_IMAGE];
 
   return {
     title,
@@ -209,13 +214,13 @@ export function buildMetadata({
       title,
       description: desc,
       locale: SITE.locale,
-      ...(images?.length ? { images } : {}),
+      images: shareImages,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description: desc,
-      ...(images?.length ? { images } : {}),
+      images: shareImages,
     },
   };
 }

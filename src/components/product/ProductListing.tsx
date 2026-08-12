@@ -28,7 +28,7 @@ export function ProductListing({
   basePath,
   searchParams,
   emptyTitle = "No products match those filters",
-  emptyDescription = "Try widening the price band or clearing a filter. If you cannot find what you need, message us — we source well beyond what is listed here.",
+  emptyDescription = "Try widening the price band or clearing a filter. If you cannot find what you need, message us, we source well beyond what is listed here.",
 }: {
   products: ProductCardDTO[];
   total: number;

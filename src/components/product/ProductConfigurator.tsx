@@ -178,7 +178,7 @@ export function ProductConfigurator({
 
     setAdded(true);
     toast.success("Added to your inquiry list", {
-      description: `${product.name} — ${formatQty(quantity, product.unit, product.unitLabel)}`,
+      description: `${product.name}: ${formatQty(quantity, product.unit, product.unitLabel)}`,
       action: { label: "View list", onClick: () => router.push("/cart") },
     });
   }
@@ -291,7 +291,7 @@ export function ProductConfigurator({
                 This one is quoted, not listed
               </h2>
               <p className="mt-1.5 text-sm leading-relaxed text-body">
-                The price depends on the specification — size, materials,
+                The price depends on the specification: size, materials,
                 finishing and quantity all move it. Send us what you need and
                 we&apos;ll come back with an exact figure, usually the same day.
               </p>
@@ -355,7 +355,7 @@ export function ProductConfigurator({
               <AlertTriangle className="mt-0.5 size-3.5 shrink-0" aria-hidden />
               <span>
                 Below the {formatQty(priced.moq, product.unit, product.unitLabel)}{" "}
-                minimum. Send the inquiry anyway — we can often make smaller runs
+                minimum. Send the inquiry anyway, we can often make smaller runs
                 work, especially alongside other items.
               </span>
             </p>
@@ -430,7 +430,7 @@ export function ProductConfigurator({
         {!activeSku ? (
           <p className="mt-3 rounded-lg border border-warning/25 bg-warning-tint px-3 py-2.5 text-xs text-warning">
             That combination isn&apos;t available. Try a different option above,
-            or message us — we can usually make it.
+            or message us, we can usually make it.
           </p>
         ) : null}
 

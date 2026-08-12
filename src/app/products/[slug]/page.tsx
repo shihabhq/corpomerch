@@ -64,7 +64,7 @@ export async function generateMetadata(
 
   return {
     ...buildMetadata({
-      title: product.seoTitle ?? `${product.name} — Custom Printing & Bulk Pricing`,
+      title: product.seoTitle ?? `${product.name}: Custom Printing & Bulk Pricing`,
       description,
       path: `/products/${product.slug}`,
       images,

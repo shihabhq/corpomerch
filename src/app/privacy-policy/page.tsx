@@ -40,8 +40,8 @@ export default function PrivacyPolicyPage() {
             form. All of these fields are optional.
           </li>
           <li>
-            Basic technical information about the request — your browser&apos;s
-            user-agent string and the page you came from — used to spot abuse
+            Basic technical information about the request: your browser&apos;s
+            user-agent string and the page you came from, used to spot abuse
             and to understand which pages generate inquiries.
           </li>
         </ul>
@@ -90,7 +90,7 @@ export default function PrivacyPolicyPage() {
       <LegalSection heading="How long we keep it">
         <p>
           Inquiry records are retained for as long as they are commercially
-          useful — typically three years — so we can honour repeat orders and
+          useful, typically three years, so we can honour repeat orders and
           reprint from previous artwork. You can ask us to delete yours sooner.
         </p>
       </LegalSection>

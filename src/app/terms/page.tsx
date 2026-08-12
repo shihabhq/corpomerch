@@ -52,7 +52,7 @@ export default function TermsPage() {
         <p>
           We issue a digital proof for every job. Production begins only after
           you approve it in writing. Once approved, you are responsible for
-          errors in the approved artwork — including spelling, names, dates and
+          errors in the approved artwork, including spelling, names, dates and
           contact details. Please check names and serial numbers especially
           carefully on certificates and ID cards.
         </p>

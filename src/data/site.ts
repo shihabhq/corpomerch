@@ -11,7 +11,7 @@ export const SITE = {
   legalName: "Backstage Ltd.",
   tagline: "Custom corporate merchandise & print",
   description:
-    "CorpoMerch by Backstage supplies customised corporate merchandise and print across Bangladesh — ID cards, lanyards, drinkware, pens, bags, certificates, banners and complete event kits. Bulk pricing, low MOQs, quotes on WhatsApp.",
+    "CorpoMerch by Backstage supplies customised corporate merchandise and print across Bangladesh: ID cards, lanyards, drinkware, pens, bags, certificates, banners and complete event kits. Bulk pricing, low MOQs, quotes on WhatsApp.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://corpomerch.com",
   locale: "en_BD",
 } as const;
@@ -108,12 +108,12 @@ export const HOW_IT_WORKS: {
  * until the admin populates it). Swap to `getPartners()` there if that list
  * ever needs to live on the homepage too.
  *
- * The source files in `public/clients/` are the originals as supplied — four
- * of the five are a small mark centred on a huge square canvas, which is why
- * they rendered at wildly different visual sizes next to each other. The
- * `trimmed/` copies crop each one to its actual ink, and `width`/`height`
- * are that trimmed image's real pixel size, so a fixed display height times
- * this ratio never distorts the mark.
+ * Every source file in `public/clients/` started as a small mark centred on
+ * a much larger canvas (some square and near-transparent, some just padded),
+ * which is why they rendered at wildly different visual sizes next to each
+ * other. The `trimmed/` copies crop each one to its actual ink, and
+ * `width`/`height` are that trimmed image's real pixel size, so a fixed
+ * display height times this ratio never distorts the mark.
  */
 export const CLIENTS: { name: string; logo: string; width: number; height: number }[] = [
   { name: "Bini", logo: "/clients/trimmed/bini.png", width: 93, height: 40 },
@@ -141,11 +141,35 @@ export const CLIENTS: { name: string; logo: string; width: number; height: numbe
     width: 657,
     height: 501,
   },
+  {
+    name: "Grinscreen Digital",
+    logo: "/clients/trimmed/grinscreen-digital.png",
+    width: 83,
+    height: 89,
+  },
+  {
+    name: "Marico Bangladesh",
+    logo: "/clients/trimmed/marico-bangladesh-ltd.png",
+    width: 98,
+    height: 86,
+  },
+  {
+    name: "Parachute Bangladesh",
+    logo: "/clients/trimmed/parachute-bangladesh.png",
+    width: 87,
+    height: 78,
+  },
+  {
+    name: "Raze Bangladesh",
+    logo: "/clients/trimmed/raze-bangladesh.png",
+    width: 101,
+    height: 47,
+  },
 ];
 
 export const TRUST_STATS: { value: string; label: string }[] = [
-  { value: "500+", label: "Events supplied" },
-  { value: "20+", label: "Product categories" },
-  { value: "1–2 days", label: "Fastest turnaround" },
-  { value: "MOQ 1", label: "On selected items" },
+  { value: "30+", label: "Events Supplied" },
+  { value: "50+", label: "Corporate Items" },
+  { value: "1-2 days", label: "Fastest Delivery" },
+  { value: "20+", label: "Organizations Served" },
 ];

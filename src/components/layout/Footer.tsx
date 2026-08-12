@@ -10,8 +10,9 @@ export function Footer() {
 
   return (
     <footer className="mt-auto border-t border-line bg-white">
-      {/* Quote band */}
-      <div className="bg-ink">
+      {/* Quote band — same white as the rest of the homepage, not a separate
+          black slab. The WhatsApp green still gives the CTA its own weight. */}
+      <div className="border-b border-line bg-white">
         <div
           className={cn(
             CONTAINER,
@@ -19,10 +20,10 @@ export function Footer() {
           )}
         >
           <div className="max-w-xl">
-            <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+            <h2 className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">
               Need a quote for your next event?
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-white/70">
+            <p className="mt-2 text-sm leading-relaxed text-muted">
               Send us your quantity and deadline on WhatsApp. We usually reply
               within a couple of hours on working days.
             </p>
@@ -39,86 +40,91 @@ export function Footer() {
         </div>
       </div>
 
-      <div className={cn(CONTAINER, "py-12")}>
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
-          <div className="col-span-2 lg:col-span-2">
-            <Image
-              src="/assets/logo.png"
-              alt="CorpoMerch by Backstage"
-              width={256}
-              height={144}
-              className="h-9 w-auto"
-            />
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
-              Customised corporate merchandise and print for events, offices and
-              institutions across Bangladesh — from a single engraved card
-              holder to a thousand-piece delegate kit.
-            </p>
+      {/* Everything below the quote band is brand red, per the site's
+          red-and-black-on-white palette — this is the one place red covers a
+          whole section rather than punctuating it. */}
+      <div className="bg-brand">
+        <div className={cn(CONTAINER, "py-12")}>
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
+            <div className="col-span-2 lg:col-span-2">
+              <Image
+                src="/assets/logo-white.png"
+                alt="CorpoMerch by Backstage"
+                width={256}
+                height={144}
+                className="h-9 w-auto"
+              />
+              <p className="mt-4 max-w-sm text-[15px] font-medium leading-relaxed text-white/85">
+                Customised corporate merchandise and print for events, offices and
+                institutions across Bangladesh, from a single engraved card
+                holder to a thousand-piece delegate kit.
+              </p>
 
-            <address className="mt-6 space-y-3 not-italic">
-              <a
-                href={CONTACT.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-2.5 text-sm text-muted transition-colors hover:text-brand"
-              >
-                <MapPin className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden />
-                <span>
-                  {CONTACT.addressLine}
-                  <br />
-                  {CONTACT.addressCity} {CONTACT.addressPostcode}, {CONTACT.addressCountry}
-                </span>
-              </a>
-              <a
-                href={CONTACT.phoneHref}
-                className="flex items-center gap-2.5 text-sm text-muted transition-colors hover:text-brand"
-              >
-                <Phone className="size-4 shrink-0 text-brand" aria-hidden />
-                {CONTACT.phoneDisplay}
-              </a>
-              <a
-                href={`mailto:${CONTACT.email}`}
-                className="flex items-center gap-2.5 text-sm text-muted transition-colors hover:text-brand"
-              >
-                <Mail className="size-4 shrink-0 text-brand" aria-hidden />
-                {CONTACT.email}
-              </a>
-            </address>
-          </div>
-
-          {FOOTER_SECTIONS.map((section) => (
-            <div key={section.title}>
-              <h3 className="text-xs font-semibold uppercase tracking-[0.12em] text-ink">
-                {section.title}
-              </h3>
-              <ul className="mt-4 space-y-2.5">
-                {section.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted transition-colors hover:text-brand"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <address className="mt-6 space-y-3 not-italic">
+                <a
+                  href={CONTACT.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2.5 text-[15px] font-medium text-white/85 transition-colors hover:text-white"
+                >
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-white" aria-hidden />
+                  <span>
+                    {CONTACT.addressLine}
+                    <br />
+                    {CONTACT.addressCity} {CONTACT.addressPostcode}, {CONTACT.addressCountry}
+                  </span>
+                </a>
+                <a
+                  href={CONTACT.phoneHref}
+                  className="flex items-center gap-2.5 text-[15px] font-medium text-white/85 transition-colors hover:text-white"
+                >
+                  <Phone className="size-4 shrink-0 text-white" aria-hidden />
+                  {CONTACT.phoneDisplay}
+                </a>
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="flex items-center gap-2.5 text-[15px] font-medium text-white/85 transition-colors hover:text-white"
+                >
+                  <Mail className="size-4 shrink-0 text-white" aria-hidden />
+                  {CONTACT.email}
+                </a>
+              </address>
             </div>
-          ))}
-        </div>
-      </div>
 
-      <div className="border-t border-line bg-surface">
-        <div
-          className={cn(
-            CONTAINER,
-            "flex flex-col items-center justify-between gap-3 py-5 sm:flex-row",
-          )}
-        >
-          <p className="text-xs text-muted">
-            © {year} {SITE.name}, a {SITE.legalName} brand. All rights reserved.
-          </p>
-          <p className="text-xs text-faint">{CONTACT.hours}</p>
+            {FOOTER_SECTIONS.map((section) => (
+              <div key={section.title}>
+                <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-white">
+                  {section.title}
+                </h3>
+                <ul className="mt-4 space-y-2.5">
+                  {section.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-[15px] font-medium text-white/85 transition-colors hover:text-white"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="border-t border-white/15">
+          <div
+            className={cn(
+              CONTAINER,
+              "flex flex-col items-center justify-between gap-3 py-5 sm:flex-row",
+            )}
+          >
+            <p className="text-sm font-medium text-white/80">
+              © {year} {SITE.name}, a {SITE.legalName} brand. All rights reserved.
+            </p>
+            <p className="text-sm font-medium text-white/70">{CONTACT.hours}</p>
+          </div>
         </div>
       </div>
     </footer>
