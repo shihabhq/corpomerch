@@ -530,8 +530,21 @@ export async function getTestimonials() {
   });
 }
 
+/** One photograph in a case study's gallery, as stored in PortfolioItem.gallery. */
+export interface PortfolioImage {
+  storagePath: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  blurDataUrl?: string;
+}
+
+function toGallery(value: unknown): PortfolioImage[] {
+  return Array.isArray(value) ? (value as PortfolioImage[]) : [];
+}
+
 export async function getPortfolioItems() {
-  return prisma.portfolioItem.findMany({
+  const rows = await prisma.portfolioItem.findMany({
     where: { status: "PUBLISHED" },
     orderBy: [{ sortOrder: "asc" }, { eventDate: "desc" }],
     select: {
@@ -543,6 +556,58 @@ export async function getPortfolioItems() {
       summary: true,
       coverPath: true,
       eventDate: true,
+      gallery: true,
     },
+  });
+
+  return rows.map((row) => ({
+    ...row,
+    gallery: toGallery(row.gallery),
+    imageCount: toGallery(row.gallery).length,
+  }));
+}
+
+export async function getPortfolioItem(slug: string) {
+  const row = await prisma.portfolioItem.findFirst({
+    where: { slug, status: "PUBLISHED" },
+    include: {
+      products: {
+        // Filter at the database, not after — an unpublished product must not
+        // reach the page at all, or the case study links to a 404.
+        where: { product: PUBLISHED },
+        orderBy: { sortOrder: "asc" },
+        select: { product: { select: productCardSelect } },
+      },
+    },
+  });
+
+  if (!row) return null;
+
+  return {
+    id: row.id,
+    slug: row.slug,
+    title: row.title,
+    client: row.client,
+    eventType: row.eventType,
+    summary: row.summary,
+    description: row.description,
+    eventDate: row.eventDate,
+    coverPath: row.coverPath,
+    gallery: toGallery(row.gallery),
+    seoTitle: row.seoTitle,
+    seoDescription: row.seoDescription,
+    // Only surface products that are still published — a case study should
+    // never link to a 404.
+    products: row.products
+      .map((link) => link.product)
+      .filter((p): p is NonNullable<typeof p> => Boolean(p))
+      .map(toCard),
+  };
+}
+
+export async function getAllPortfolioSlugs() {
+  return prisma.portfolioItem.findMany({
+    where: { status: "PUBLISHED" },
+    select: { slug: true, updatedAt: true },
   });
 }
