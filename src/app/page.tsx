@@ -4,6 +4,7 @@ import { ArrowRight, BadgeCheck, Boxes, Clock4, Wallet } from "lucide-react";
 import { CategoryCarousel } from "@/components/home/CategoryCarousel";
 import { ClientLogos } from "@/components/home/ClientLogos";
 import { Hero } from "@/components/home/Hero";
+import { PortfolioStrip } from "@/components/home/PortfolioStrip";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { ProductCard, ProductGrid } from "@/components/shared/ProductCard";
 import { JsonLd } from "@/components/shared/JsonLd";
@@ -12,6 +13,7 @@ import {
   getCategoryShowcase,
   getFaqs,
   getFeaturedProducts,
+  getPortfolioItems,
   listProducts,
 } from "@/lib/queries";
 import { faqSchema, itemListSchema } from "@/lib/seo";
@@ -44,11 +46,12 @@ const WHY_US = [
 ];
 
 export default async function HomePage() {
-  const [featured, categoryShowcase, newest, faqs] = await Promise.all([
+  const [featured, categoryShowcase, newest, faqs, portfolio] = await Promise.all([
     getFeaturedProducts(10),
     getCategoryShowcase(),
     listProducts({ sort: "newest", perPage: 5 }),
     getFaqs(),
+    getPortfolioItems(),
   ]);
 
   return (
@@ -119,6 +122,25 @@ export default async function HomePage() {
           <ClientLogos />
         </Container>
       </Section>
+
+      {portfolio.length > 0 ? (
+        <Section>
+          <Container>
+            <SectionHeader
+              eyebrow="Recent work"
+              title="Jobs we've delivered"
+              description="Real runs for real events, with the products we used on each."
+              action={
+                <ButtonLink href="/portfolio" variant="outline" size="sm">
+                  Full portfolio
+                  <ArrowRight className="size-4" aria-hidden />
+                </ButtonLink>
+              }
+            />
+            <PortfolioStrip items={portfolio.slice(0, 2)} />
+          </Container>
+        </Section>
+      ) : null}
     </>
   );
 }
