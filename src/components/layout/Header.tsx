@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 
 import { CONTACT, NAV_LINKS } from "@/data/site";
+import { startNavigation } from "@/store/navigation";
 import { useCartCount } from "@/store/cart";
 import { cn, CONTAINER } from "@/lib/utils";
 import type { CategoryTreeDTO } from "@/types/catalog";
@@ -52,7 +53,10 @@ export function Header({
   function submitSearch(e: React.FormEvent) {
     e.preventDefault();
     const q = query.trim();
-    if (q) router.push(`/search?q=${encodeURIComponent(q)}`);
+    if (q) {
+      startNavigation(`/search?q=${encodeURIComponent(q)}`);
+      router.push(`/search?q=${encodeURIComponent(q)}`);
+    }
   }
 
   // Small delay on close so the pointer can cross the gap into the panel.
