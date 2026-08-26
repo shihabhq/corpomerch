@@ -48,6 +48,18 @@
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+@keyframes nav-progress {
+  0% {
+    transform: scaleX(0.08) translateX(-120%);
+  }
+  50% {
+    transform: scaleX(0.45) translateX(40%);
+  }
+  100% {
+    transform: scaleX(0.08) translateX(220%);
+  }
+}
+
 /* ─── Base ─────────────────────────────────────────────────────────────────── */
 /* Wrapped in @layer base so it sits below Tailwind's utilities layer in the
    cascade. Unlayered rules beat layered ones regardless of specificity — left

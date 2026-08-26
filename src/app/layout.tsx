@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { NavigationLoader } from "@/components/layout/NavigationLoader";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { SITE } from "@/data/site";
 import { getCategoryTree, getSiteSettings } from "@/lib/queries";
@@ -115,6 +116,8 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             settings?.announcementActive ? settings.announcementText : null
           }
         />
+
+        <NavigationLoader />
 
         <main id="main" className="flex-1">
           {children}

@@ -116,6 +116,7 @@ export const HOW_IT_WORKS: {
  * display height times this ratio never distorts the mark.
  */
 export const CLIENTS: { name: string; logo: string; width: number; height: number }[] = [
+  { name: "TEDx", logo: "/clients/trimmed/tedx.png", width: 940, height: 279 },
   { name: "Bini", logo: "/clients/trimmed/bini.png", width: 93, height: 40 },
   {
     name: "BUP Accounting Forum",
