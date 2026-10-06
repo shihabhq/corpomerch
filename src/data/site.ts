@@ -103,69 +103,94 @@ export const HOW_IT_WORKS: {
 ];
 
 /**
- * Homepage client-logo row. Static files in `public/clients/trimmed/` —
+ * Homepage client-logo row. Static files in `public/clients/` —
  * separate from the DB-driven `Partner` model behind `/partners` (empty
  * until the admin populates it). Swap to `getPartners()` there if that list
  * ever needs to live on the homepage too.
  *
- * Every source file in `public/clients/` started as a small mark centred on
- * a much larger canvas (some square and near-transparent, some just padded),
- * which is why they rendered at wildly different visual sizes next to each
- * other. The `trimmed/` copies crop each one to its actual ink, and
- * `width`/`height` are that trimmed image's real pixel size, so a fixed
+ * Every file in `public/clients/` must be cropped tight to its ink (no
+ * padding), and `width`/`height` below are its real pixel size, so a fixed
  * display height times this ratio never distorts the mark.
  */
-export const CLIENTS: { name: string; logo: string; width: number; height: number }[] = [
-  { name: "TEDx", logo: "/clients/trimmed/tedx.png", width: 940, height: 279 },
-  { name: "Bini", logo: "/clients/trimmed/bini.png", width: 93, height: 40 },
+export const CLIENTS: {
+  name: string;
+  logo: string;
+  width: number;
+  height: number;
+  /** Very wide marks read too large at the shared height; render them smaller. */
+  compact?: boolean;
+}[] = [
+  { name: "TEDx", logo: "/clients/tedx.png", width: 940, height: 279, compact: true },
+  {
+    name: "Unilever",
+    logo: "/clients/unilever.png",
+    width: 400,
+    height: 443,
+  },
+  {
+    name: "BRAC University IABC",
+    logo: "/clients/iabc.png",
+    width: 400,
+    height: 400,
+  },
+  {
+    name: "Stacked Ventures",
+    logo: "/clients/stacked-ventures.png",
+    width: 897,
+    height: 327,
+  },
+  { name: "Bini", logo: "/clients/bini.png", width: 93, height: 40 },
   {
     name: "BUP Accounting Forum",
-    logo: "/clients/trimmed/bup-accounting-fourm.png",
+    logo: "/clients/bup-accounting-fourm.png",
     width: 552,
     height: 609,
   },
   {
     name: "BUP Career Club",
-    logo: "/clients/trimmed/bup-career-club.png",
+    logo: "/clients/bup-career-club.png",
     width: 1318,
     height: 1527,
   },
   {
     name: "DBOX Sports Complex",
-    logo: "/clients/trimmed/dbox-sports-complex.png",
+    logo: "/clients/dbox-sports-complex.png",
     width: 1053,
     height: 578,
   },
   {
     name: "Tripple Time Communication",
-    logo: "/clients/trimmed/tripple-time-communication.png",
+    logo: "/clients/tripple-time-communication.png",
     width: 657,
     height: 501,
   },
   {
     name: "Grinscreen Digital",
-    logo: "/clients/trimmed/grinscreen-digital.png",
+    logo: "/clients/grinscreen-digital.png",
     width: 83,
     height: 89,
   },
   {
     name: "Marico Bangladesh",
-    logo: "/clients/trimmed/marico-bangladesh-ltd.png",
+    logo: "/clients/marico-bangladesh-ltd.png",
     width: 98,
     height: 86,
   },
   {
     name: "Parachute Bangladesh",
-    logo: "/clients/trimmed/parachute-bangladesh.png",
+    logo: "/clients/parachute-bangladesh.png",
     width: 87,
     height: 78,
   },
   {
     name: "Raze Bangladesh",
-    logo: "/clients/trimmed/raze-bangladesh.png",
+    logo: "/clients/raze-bangladesh.png",
     width: 101,
     height: 47,
   },
+  { name: "ReachSavvy", logo: "/clients/reachsavvy.png", width: 1816, height: 311, compact: true },
+  { name: "RAK Ceramics", logo: "/clients/rak-ceramics.png", width: 339, height: 195 },
+  { name: "API Engineering", logo: "/clients/api-engineering.png", width: 1600, height: 501 },
 ];
 
 export const TRUST_STATS: { value: string; label: string }[] = [

@@ -20,7 +20,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = buildMetadata({
   title: "Portfolio: Events We've Supplied",
   description:
-    "Selected work from CorpoMerch: numbered event ticket booklets, PVC crew badges, campaign vouchers, delegate kits and event print produced across Bangladesh.",
+    "Selected work from CorpoMerch: TEDxBUP delegate kits, custom keyrings, mugs and gift boxes, branded bags for RAZE, corporate sets for Stacked Ventures, event tickets and PVC badges, produced across Bangladesh.",
   path: "/portfolio",
 });
 
@@ -57,9 +57,10 @@ export default async function PortfolioPage() {
         <h1 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
           Work we&apos;ve delivered
         </h1>
-        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-          Brand activations, concerts, career fairs and conferences: ticket
-          booklets, crew badges, vouchers and event print produced end to end.
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+          Conferences, brand activations and concerts: delegate kits, custom
+          keyrings, mugs, bags, gift boxes, tickets and badges, sourced, printed
+          and delivered end to end.
         </p>
       </Container>
 
@@ -128,7 +129,7 @@ export default async function PortfolioPage() {
                         ) : null}
 
                         {item.summary ? (
-                          <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted">
+                          <p className="mt-3 line-clamp-4 text-[15px] leading-relaxed text-muted">
                             {item.summary}
                           </p>
                         ) : null}

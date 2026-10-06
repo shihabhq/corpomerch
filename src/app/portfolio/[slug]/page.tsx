@@ -125,7 +125,7 @@ export default async function PortfolioItemPage(
             {item.title}
           </h1>
           {item.summary ? (
-            <p className="mt-4 text-base leading-relaxed text-body">
+            <p className="mt-4 text-lg leading-relaxed text-body sm:text-xl">
               {item.summary}
             </p>
           ) : null}
@@ -155,7 +155,7 @@ export default async function PortfolioItemPage(
       {item.description ? (
         <Section>
           <Container>
-            <div className="cm-prose max-w-3xl text-[15px]">
+            <div className="cm-prose max-w-3xl text-base sm:text-lg">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {item.description}
               </ReactMarkdown>
